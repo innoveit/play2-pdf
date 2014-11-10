@@ -1,15 +1,13 @@
-Play 2.0 PDF module
+Play 2.3.X PDF module
 ===================
 
 This module helps generating PDF documents dynamically from your Play! web application.
 It simply renders your HTML- and CSS-based templates to PDF.
 It is based on the Flying Saucer library, which in turn uses iText for PDF generation.
+This project is a fork of https://github.com/benjohnde/play20-pdf
 
 Usage
 -----
-
-I have provided a simple example application at
-https://github.com/joergviola/play20-pdf/samples/pdf-sample.
 
 You can use a standard Play! scala template like this one:
 ``` html
@@ -22,15 +20,15 @@ You can use a standard Play! scala template like this one:
 }
 ```
 
-Then this template, after having imported ```util.pdf.PDF```, can simply be rendered as:
+Then this template, after having imported ```it.innove.PdfGenerator```, can simply be rendered as:
 ``` java
 	public static Result document() {
-		return PDF.ok(document.render("Your new application is ready."));
+		return PdfGenerator.ok(document.render("Your new application is ready."));
 	}
 ```  
-where ```PDF.ok``` is a simple shorthand notation for:
+where ```PdfGenerator.ok``` is a simple shorthand notation for:
 ``` java
-	ok(PDF.toBytes(document.render("Your new application is ready."))).as("application/pdf")
+	ok(PdfGenerator.toBytes(document.render("Your new application is ready."))).as("application/pdf")
 ```
 
 Template rules
