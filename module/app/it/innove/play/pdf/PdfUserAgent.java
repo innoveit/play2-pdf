@@ -1,21 +1,14 @@
-package util.pdf;
+package it.innove.play.pdf;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import nu.validator.htmlparser.dom.HtmlDocumentBuilder;
-
-import org.w3c.dom.Document;
 import org.xhtmlrenderer.pdf.ITextFSImage;
-import org.xhtmlrenderer.pdf.ITextFontResolver;
 import org.xhtmlrenderer.pdf.ITextOutputDevice;
-import org.xhtmlrenderer.pdf.ITextRenderer;
 import org.xhtmlrenderer.pdf.ITextUserAgent;
 import org.xhtmlrenderer.resource.CSSResource;
 import org.xhtmlrenderer.resource.ImageResource;
@@ -23,22 +16,14 @@ import org.xhtmlrenderer.resource.XMLResource;
 
 import play.Logger;
 import play.api.Play;
-import play.api.templates.Html;
-import play.mvc.Result;
-import play.mvc.Results;
 import scala.Option;
 
-import com.lowagie.text.DocumentException;
 import com.lowagie.text.Image;
-import com.lowagie.text.pdf.BaseFont;
 
-public class PDF {
 
-	private static final String PLAY_DEFAULT_URL = "http://localhost:9000";
+public class PdfUserAgent extends ITextUserAgent {
 
-	public static class MyUserAgent extends ITextUserAgent {
-
-		public MyUserAgent(ITextOutputDevice outputDevice) {
+		public PdfUserAgent(ITextOutputDevice outputDevice) {
 			super(outputDevice);
 		}
 
@@ -130,68 +115,4 @@ public class PDF {
 		}
 	}
 
-	public static Result ok(Html html) {
-		byte[] pdf = toBytes(html.body());
-		return Results.ok(pdf).as("application/pdf");
-	}
 
-	public static byte[] toBytes(Html html) {
-		byte[] pdf = toBytes(html.body());
-		return pdf;
-	}
-
-	public static byte[] toBytes(String string) {
-		return toBytes(string, PLAY_DEFAULT_URL);
-	}
-
-	public static Result ok(Html html, String documentBaseURL) {
-		byte[] pdf = toBytes(html.body(), documentBaseURL);
-		return Results.ok(pdf).as("application/pdf");
-	}
-
-	public static byte[] toBytes(Html html, String documentBaseURL) {
-		byte[] pdf = toBytes(html.body(), documentBaseURL);
-		return pdf;
-	}
-
-	public static byte[] toBytes(String string, String documentBaseURL) {
-		ByteArrayOutputStream os = new ByteArrayOutputStream();
-		toStream(string, os, documentBaseURL);
-		return os.toByteArray();
-	}
-
-	public static void toStream(String string, OutputStream os) {
-		toStream(string, os, PLAY_DEFAULT_URL);
-	}
-
-	public static void toStream(String string, OutputStream os, String documentBaseURL) {
-		try {
-			InputStream input = new ByteArrayInputStream(string.getBytes("UTF-8"));
-			ITextRenderer renderer = new ITextRenderer();
-			String fontDirectory = Play.current().path() + "/conf/resources/fonts";
-			if (new File(fontDirectory).isDirectory()) {
-				addFontDirectory(renderer.getFontResolver(), fontDirectory);
-			}
-			MyUserAgent myUserAgent = new MyUserAgent(
-					renderer.getOutputDevice());
-			myUserAgent.setSharedContext(renderer.getSharedContext());
-			renderer.getSharedContext().setUserAgentCallback(myUserAgent);
-			Document document = new HtmlDocumentBuilder().parse(input);
-			renderer.setDocument(document, documentBaseURL);
-			renderer.layout();
-			renderer.createPDF(os);
-		} catch (Exception e) {
-			Logger.error("Creating document from template", e);
-		}
-	}
-
-	private static void addFontDirectory(ITextFontResolver fontResolver,
-			String directory) throws DocumentException, IOException {
-		File dir = new File(directory);
-		for (File file : dir.listFiles()) {
-			fontResolver.addFont(file.getAbsolutePath(), BaseFont.IDENTITY_H,
-					BaseFont.EMBEDDED);
-		}
-	}
-
-}
