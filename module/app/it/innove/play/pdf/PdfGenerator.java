@@ -29,11 +29,11 @@ import play.mvc.Results;
 
 public class PdfGenerator {
 
-	private static List<File> fonts = null;
+	private static List<String> fonts = null;
 
-	public static void loadFonts(String[] fontsToLoad) {
+	public static void loadTemporaryFonts(String[] fontsToLoad) {
 		if (fonts == null)
-			fonts = new ArrayList<File>();
+			fonts = new ArrayList<String>();
 		for (String font : fontsToLoad) {
 			try {
 				InputStream fin = Play.application().resourceAsStream(font);
@@ -41,11 +41,18 @@ public class PdfGenerator {
 				tempFile.deleteOnExit();
 				FileOutputStream out = new FileOutputStream(tempFile);
 				IOUtils.copy(fin, out);
-				fonts.add(tempFile);
+				fonts.add(tempFile.getAbsolutePath());
 			} catch (Exception e) {
 				Logger.error("Loading fonts", e);
 			}
 		}
+	}
+	
+	public static void loadLocalFonts(String[] fontsToLoad) {
+		if (fonts == null)
+			fonts = new ArrayList<String>();
+		for (String font : fontsToLoad)
+			fonts.add(font);
 	}
 
 	public static Result ok(Html html, String documentBaseURL) {
@@ -82,8 +89,8 @@ public class PdfGenerator {
 	}
 
 	private static void addFontDirectory(ITextFontResolver fontResolver) throws DocumentException, IOException {
-		for (File font : fonts) {
-			fontResolver.addFont(font.getAbsolutePath(), BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+		for (String font : fonts) {
+			fontResolver.addFont(font, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
 		}
 	}
 

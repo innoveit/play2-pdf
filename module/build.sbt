@@ -8,6 +8,8 @@ lazy val root = (project in file(".")).enablePlugins(PlayJava)
 
 scalaVersion := "2.11.1"
 
+crossPaths := false
+
 libraryDependencies ++= Seq(
   "commons-io" % "commons-io" % "2.4",
   "org.xhtmlrenderer" % "flying-saucer-pdf" % "9.0.7",
