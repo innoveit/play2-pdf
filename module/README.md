@@ -1,4 +1,4 @@
-Play 2.0 PDF module
+Play PDF module
 ===================
 
 This folder contains the actual module.
