@@ -89,7 +89,7 @@ Releases
 
 <table>
 	<tr>
-		<td>0.5</td>
+		<td>1.0.0</td>
 		<td>12/11/2014</td>
 		<td>Play 2.3</td>
 	</tr>
