@@ -4,7 +4,7 @@ Play 2.3.x PDF module
 This module helps generating PDF documents dynamically from your Play! web application.
 It simply renders your HTML- and CSS-based templates to PDF.
 It is based on the Flying Saucer library, which in turn uses iText for PDF generation.
-This project is a fork of https://github.com/benjohnde/play20-pdf
+This project is a fork of https://github.com/benjohnde/play20-pdf .
 
 Usage
 -----
@@ -62,22 +62,17 @@ Fonts you use must be explicitely packaged with your app.
 ```
 Since the FreeSans font is not available to the java VM, you are required to
 add the corresponding font file, "FreeSans.ttf" to your Play! app.
-The module adds ```/conf/resources/fonts``` to the list of directories
-searched for font files.
+You can add your fonts with ```PdfGenerator.loadLocalFonts``` method, for example if you put the font in the folder  ```/conf/fonts``` you load the font with ```PdfGenerator.loadLocalFonts(new String[] { "fonts/FreeSans.ttf")```.
 
 Installation
 ------------
 
-Currently, the module is hosted at http://www.joergviola.de/releases/.
-Therefore, including the following lines in your ```Build.scala``` will resolve it:
+Currently, the module is hosted at Maven Central Repository.
+Therefore, including the following lines in your ```build.scala``` will resolve it:
 ```
-val appDependencies = Seq(
+libraryDependencies ++= Seq(
   ...
-      "de.joergviola" %% "play-pdf" % "0.6-SNAPSHOT"
-)
-val main = PlayProject(appName, appVersion, appDependencies, mainLang = JAVA).settings(
-  ...
-  resolvers += Resolver.url("Violas Play Modules", url("http://www.joergviola.de/releases/"))(Resolver.ivyStylePatterns)
+      "it.innove" % "play2-pdf" % "1.0.0",
 )
 ```
 After the next restart of Play!, the module is available.
@@ -95,38 +90,7 @@ Releases
 <table>
 	<tr>
 		<td>0.5</td>
-		<td>11.06.2013</td>
-		<td>Fix with higher UTF-8 codes, documentBaseURL</td>
-		<td>Thanks Wolfert de Kraker</td>
-	</tr>
-	<tr>
-		<td>0.4</td>
-		<td>08.02.2013</td>
-		<td>Play 2.1</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>0.4</td>
-		<td>04.02.2013</td>
-		<td>Play 2.1.RC4, remote images</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>0.3</td>
-		<td>15.06.2012</td>
-		<td>CSS handling</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>0.2</td>
-		<td>21.05.2012</td>
-		<td>Font handling</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>0.1</td>
-		<td>18.05.2012</td>
-		<td>Initial release</td>
-		<td></td>
+		<td>12/11/2014</td>
+		<td>Play 2.3</td>
 	</tr>
 </table>
