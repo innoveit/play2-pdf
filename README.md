@@ -62,7 +62,8 @@ Fonts you use must be explicitely packaged with your app.
 ```
 Since the FreeSans font is not available to the java VM, you are required to
 add the corresponding font file, "FreeSans.ttf" to your Play! app.
-You can add your fonts with ```PdfGenerator.loadLocalFonts``` method, for example if you put the font in the folder  ```/conf/fonts``` you load the font with ```PdfGenerator.loadLocalFonts(new String[]{"fonts/FreeSans.ttf"})```.
+You can add your fonts with ```PdfGenerator.loadLocalFonts``` method, for example if you put the font in the folder  ```/conf/fonts``` you load the font with:
+```PdfGenerator.loadLocalFonts(new String[]{"fonts/FreeSans.ttf"})```
 
 Installation
 ------------
