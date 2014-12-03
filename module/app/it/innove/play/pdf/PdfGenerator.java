@@ -88,7 +88,7 @@ public class PdfGenerator {
 	
 	public static byte[] toBytes(String string, String documentBaseURL, List<String> fonts) {
 		ByteArrayOutputStream os = new ByteArrayOutputStream();
-		toStream(string, os, documentBaseURL);
+		toStream(string, os, documentBaseURL, fonts);
 		return os.toByteArray();
 	}
 	
