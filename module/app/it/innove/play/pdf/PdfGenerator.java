@@ -32,6 +32,11 @@ public class PdfGenerator {
 	private static List<String> fonts = null;
 
 	public static void loadTemporaryFonts(String[] fontsToLoad) {
+		fonts = new ArrayList<String>();
+		addTemporaryFonts(fontsToLoad);
+	}
+
+	public static void addTemporaryFonts(String[] fontsToLoad) {
 		if (fonts == null)
 			fonts = new ArrayList<String>();
 		for (String font : fontsToLoad) {
@@ -47,8 +52,13 @@ public class PdfGenerator {
 			}
 		}
 	}
-	
+
 	public static void loadLocalFonts(String[] fontsToLoad) {
+		fonts = new ArrayList<String>();
+		addLocalFonts(fontsToLoad);
+	}
+
+	public static void addLocalFonts(String[] fontsToLoad) {
 		if (fonts == null)
 			fonts = new ArrayList<String>();
 		for (String font : fontsToLoad)
