@@ -91,6 +91,11 @@ Releases
 
 <table>
 	<tr>
+		<td>1.1.1</td>
+		<td>03/12/2014</td>
+		<td>Play 2.3</td>
+	</tr>
+	<tr>
 		<td>1.0.0</td>
 		<td>12/11/2014</td>
 		<td>Play 2.3</td>
