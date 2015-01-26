@@ -23,12 +23,12 @@ You can use a standard Play! scala template like this one:
 Then this template, after having imported ```it.innove.PdfGenerator```, can simply be rendered as:
 ``` java
 	public static Result document() {
-		return PdfGenerator.ok(document.render("Your new application is ready."));
+		return PdfGenerator.ok(document.render("Your new application is ready."), "http://localhost:9000");
 	}
 ```  
 where ```PdfGenerator.ok``` is a simple shorthand notation for:
 ``` java
-	ok(PdfGenerator.toBytes(document.render("Your new application is ready."))).as("application/pdf")
+	ok(PdfGenerator.toBytes(document.render("Your new application is ready."), "http://localhost:9000")).as("application/pdf")
 ```
 
 Template rules
