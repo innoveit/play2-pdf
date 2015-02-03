@@ -2,7 +2,7 @@ name := "play2-pdf"
 
 organization := "it.innove"
 
-version := "1.1.1"
+version := "1.1.2-SNAPSHOT"
 
 lazy val root = (project in file(".")).enablePlugins(PlayJava)
 
