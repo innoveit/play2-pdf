@@ -66,7 +66,7 @@ public class PdfGenerator {
 		byte[] pdf = toBytes(html.body(), documentBaseURL);
 		return Results.ok(pdf).as("application/pdf");
 	}
-	
+
 	public static Result ok(Html html, String documentBaseURL, List<String> fonts) {
 		byte[] pdf = toBytes(html.body(), documentBaseURL, fonts);
 		return Results.ok(pdf).as("application/pdf");
@@ -76,8 +76,8 @@ public class PdfGenerator {
 		byte[] pdf = toBytes(html.body(), documentBaseURL);
 		return pdf;
 	}
-	
-	public static byte[] toBytes(Html html, String documentBaseURL, List<String> fonts) { 
+
+	public static byte[] toBytes(Html html, String documentBaseURL, List<String> fonts) {
 		byte[] pdf = toBytes(html.body(), documentBaseURL, fonts);
 		return pdf;
 	}
@@ -85,13 +85,13 @@ public class PdfGenerator {
 	public static byte[] toBytes(String string, String documentBaseURL) {
 		return toBytes(string, documentBaseURL, defaultFonts);
 	}
-	
+
 	public static byte[] toBytes(String string, String documentBaseURL, List<String> fonts) {
 		ByteArrayOutputStream os = new ByteArrayOutputStream();
 		toStream(string, os, documentBaseURL, fonts);
 		return os.toByteArray();
 	}
-	
+
 	public static void toStream(String string, OutputStream os, String documentBaseURL) {
 		toStream(string, os, documentBaseURL, defaultFonts);
 	}
@@ -100,9 +100,10 @@ public class PdfGenerator {
 		try {
 			InputStream input = new ByteArrayInputStream(string.getBytes("UTF-8"));
 			ITextRenderer renderer = new ITextRenderer();
-			for (String font : fonts) {
-				renderer.getFontResolver().addFont(font, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
-			}
+			if (fonts != null)
+				for (String font : fonts) {
+					renderer.getFontResolver().addFont(font, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+				}
 			PdfUserAgent myUserAgent = new PdfUserAgent(renderer.getOutputDevice());
 			myUserAgent.setSharedContext(renderer.getSharedContext());
 			renderer.getSharedContext().setUserAgentCallback(myUserAgent);
@@ -114,6 +115,5 @@ public class PdfGenerator {
 			Logger.error("Error creating document from template", e);
 		}
 	}
-
 
 }
