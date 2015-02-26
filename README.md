@@ -91,6 +91,11 @@ Releases
 
 <table>
 	<tr>
+		<td>1.1.3</td>
+		<td>26/02/2015</td>
+		<td>Fix render without font</td>
+	</tr>
+	<tr>
 		<td>1.1.2</td>
 		<td>03/02/2015</td>
 		<td>Fix css loading</td>
