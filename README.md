@@ -91,6 +91,11 @@ Releases
 
 <table>
 	<tr>
+		<td>1.1.2</td>
+		<td>03/02/2015</td>
+		<td>Fix css loading</td>
+	</tr>
+	<tr>
 		<td>1.1.1</td>
 		<td>03/12/2014</td>
 		<td></td>
