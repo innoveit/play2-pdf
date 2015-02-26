@@ -74,7 +74,7 @@ Therefore, including the following lines in your ```build.scala``` will resolve 
 ```
 libraryDependencies ++= Seq(
   ...
-      "it.innove" % "play2-pdf" % "1.1.1"
+      "it.innove" % "play2-pdf" % "1.1.3"
 )
 ```
 After the next restart of Play!, the module is available.
