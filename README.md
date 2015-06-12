@@ -1,4 +1,4 @@
-Play 2.3.x PDF module
+Play 2.4.x PDF module
 ===================
 
 This module helps generating PDF documents dynamically from your Play! web application.
@@ -22,7 +22,7 @@ You can use a standard Play! scala template like this one:
 
 Then this template, after having imported ```it.innove.PdfGenerator```, can simply be rendered as:
 ``` java
-	public static Result document() {
+	public Result document() {
 		return PdfGenerator.ok(document.render("Your new application is ready."), "http://localhost:9000");
 	}
 ```  
@@ -74,7 +74,7 @@ Therefore, including the following lines in your ```build.scala``` will resolve 
 ```
 libraryDependencies ++= Seq(
   ...
-      "it.innove" % "play2-pdf" % "1.1.3"
+      "it.innove" % "play2-pdf" % "1.2.0"
 )
 ```
 After the next restart of Play!, the module is available.
@@ -90,6 +90,11 @@ Releases
 ------------
 
 <table>
+	<tr>
+		<td>1.2.0</td>
+		<td>12/06/2015</td>
+		<td>Play 2.4</td>
+	</tr>
 	<tr>
 		<td>1.1.3</td>
 		<td>26/02/2015</td>
