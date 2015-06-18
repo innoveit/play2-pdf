@@ -7,4 +7,5 @@ target
 /.settings
 /dist
 /bin
+.cache
 /RUNNING_PID

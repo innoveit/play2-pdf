@@ -1,5 +1,13 @@
 @(message: String)
 
-@main("Welcome to Play 2.0") {
-    <a href="/document">Try a PDF generation...</a>
+@main("pla2-pdf") {
+
+	<div class="container" role="main">
+    	<div class="jumbotron">
+        	<h1>play2-pdf</h1>
+        	<p>Try to generate pdf with this button.</p>
+        	<a href="@routes.Application.pdf" class="btn btn-primary">Generate PDF</a>
+      	</div>
+	</div>
+
 }
