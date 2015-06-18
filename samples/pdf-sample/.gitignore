@@ -9,3 +9,4 @@ target
 /bin
 .cache
 /RUNNING_PID
+/.cache
