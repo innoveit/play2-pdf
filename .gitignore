@@ -1,1 +1,11 @@
 .DS_Store
+
+samples/pdf-sample/.cache-tests
+
+samples/pdf-sample/.cache
+
+samples/pdf-sample/.cache-main
+
+samples/pdf-sample/.classpath
+
+samples/pdf-sample/.cache
