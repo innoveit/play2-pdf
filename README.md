@@ -70,7 +70,7 @@ Installation
 ------------
 
 Currently, the module is hosted at Maven Central Repository.
-Therefore, including the following lines in your ```build.scala``` will resolve it:
+Therefore, including the following lines in your ```build.sbt``` will resolve it:
 ```
 libraryDependencies ++= Seq(
   ...
