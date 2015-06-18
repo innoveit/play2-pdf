@@ -1,8 +1,10 @@
 logs
-project/project
-project/target
 target
-tmp
-.history
-.cache
-dist
+/.idea
+/.idea_modules
+/.classpath
+/.project
+/.settings
+/dist
+/bin
+/RUNNING_PID
