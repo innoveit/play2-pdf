@@ -11,3 +11,13 @@ samples/pdf-sample/.classpath
 samples/pdf-sample/.cache
 
 samples/pdf-sample/.settings/org.scala-ide.sdt.core.prefs
+
+module/.cache-main
+
+samples/pdf-sample/.project
+
+samples/pdf-sample/.classpath
+
+samples/pdf-sample/.cache
+
+samples/pdf-sample/.settings/org.scala-ide.sdt.core.prefs
