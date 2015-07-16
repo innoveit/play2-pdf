@@ -2,11 +2,8 @@ logs
 target
 /.idea
 /.idea_modules
-/.classpath
-/.project
-/.settings
-/dist
-/bin
+.classpath
+.project
 .cache
-/RUNNING_PID
-/.cache
+org.scala-ide.sdt.core.prefs
+bin
