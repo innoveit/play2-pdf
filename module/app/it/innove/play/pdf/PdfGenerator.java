@@ -23,17 +23,23 @@ import play.Play;
 import play.twirl.api.Html;
 import play.mvc.Result;
 import play.mvc.Results;
+import javax.inject.Singleton;
 
+@Singleton
 public class PdfGenerator {
 
-	private static List<String> defaultFonts = null;
+	private List<String> defaultFonts = null;
 
-	public static void loadTemporaryFonts(List<String> fontsToLoad) {
+	public PdfGenerator() {
+
+	}
+
+	public void loadTemporaryFonts(List<String> fontsToLoad) {
 		defaultFonts = new ArrayList<String>();
 		addTemporaryFonts(fontsToLoad);
 	}
 
-	public static void addTemporaryFonts(List<String> fontsToLoad) {
+	public void addTemporaryFonts(List<String> fontsToLoad) {
 		if (defaultFonts == null)
 			defaultFonts = new ArrayList<String>();
 		for (String font : fontsToLoad) {
@@ -50,53 +56,53 @@ public class PdfGenerator {
 		}
 	}
 
-	public static void loadLocalFonts(List<String> fontsToLoad) {
+	public void loadLocalFonts(List<String> fontsToLoad) {
 		defaultFonts = new ArrayList<String>();
 		addLocalFonts(fontsToLoad);
 	}
 
-	public static void addLocalFonts(List<String> fontsToLoad) {
+	public void addLocalFonts(List<String> fontsToLoad) {
 		if (defaultFonts == null)
 			defaultFonts = new ArrayList<String>();
 		for (String font : fontsToLoad)
 			defaultFonts.add(font);
 	}
 
-	public static Result ok(Html html, String documentBaseURL) {
+	public Result ok(Html html, String documentBaseURL) {
 		byte[] pdf = toBytes(html.body(), documentBaseURL);
 		return Results.ok(pdf).as("application/pdf");
 	}
 
-	public static Result ok(Html html, String documentBaseURL, List<String> fonts) {
+	public Result ok(Html html, String documentBaseURL, List<String> fonts) {
 		byte[] pdf = toBytes(html.body(), documentBaseURL, fonts);
 		return Results.ok(pdf).as("application/pdf");
 	}
 
-	public static byte[] toBytes(Html html, String documentBaseURL) {
+	public byte[] toBytes(Html html, String documentBaseURL) {
 		byte[] pdf = toBytes(html.body(), documentBaseURL);
 		return pdf;
 	}
 
-	public static byte[] toBytes(Html html, String documentBaseURL, List<String> fonts) {
+	public byte[] toBytes(Html html, String documentBaseURL, List<String> fonts) {
 		byte[] pdf = toBytes(html.body(), documentBaseURL, fonts);
 		return pdf;
 	}
 
-	public static byte[] toBytes(String string, String documentBaseURL) {
+	public byte[] toBytes(String string, String documentBaseURL) {
 		return toBytes(string, documentBaseURL, defaultFonts);
 	}
 
-	public static byte[] toBytes(String string, String documentBaseURL, List<String> fonts) {
+	public byte[] toBytes(String string, String documentBaseURL, List<String> fonts) {
 		ByteArrayOutputStream os = new ByteArrayOutputStream();
 		toStream(string, os, documentBaseURL, fonts);
 		return os.toByteArray();
 	}
 
-	public static void toStream(String string, OutputStream os, String documentBaseURL) {
+	public void toStream(String string, OutputStream os, String documentBaseURL) {
 		toStream(string, os, documentBaseURL, defaultFonts);
 	}
 
-	public static void toStream(String string, OutputStream os, String documentBaseURL, List<String> fonts) {
+	public void toStream(String string, OutputStream os, String documentBaseURL, List<String> fonts) {
 		try {
 			InputStream input = new ByteArrayInputStream(string.getBytes("UTF-8"));
 			ITextRenderer renderer = new ITextRenderer();

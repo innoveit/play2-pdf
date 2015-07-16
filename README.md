@@ -22,13 +22,17 @@ You can use a standard Play! scala template like this one:
 
 Then this template, after having imported ```it.innove.PdfGenerator```, can simply be rendered as:
 ``` java
+
+	@Inject
+	public PdfGenerator pdfGenerator;
+	
 	public Result document() {
-		return PdfGenerator.ok(document.render("Your new application is ready."), "http://localhost:9000");
+		return pdfGenerator.ok(document.render("Your new application is ready."), "http://localhost:9000");
 	}
 ```  
-where ```PdfGenerator.ok``` is a simple shorthand notation for:
+where ```pdfGenerator.ok``` is a simple shorthand notation for:
 ``` java
-	ok(PdfGenerator.toBytes(document.render("Your new application is ready."), "http://localhost:9000")).as("application/pdf")
+	ok(pdfGenerator.toBytes(document.render("Your new application is ready."), "http://localhost:9000")).as("application/pdf")
 ```
 
 Template rules
@@ -64,17 +68,17 @@ Since the FreeSans font is not available to the java VM, you are required to
 add the corresponding font file, "FreeSans.ttf" to your Play! app.
 You can add your fonts with ```PdfGenerator.loadLocalFonts``` method, for example if you put the font in the folder  ```/conf/fonts``` you load the font with:
 
-```PdfGenerator.loadLocalFonts(new String[]{"fonts/FreeSans.ttf"})```
+```pdfGenerator.loadLocalFonts(new String[]{"fonts/FreeSans.ttf"})```
 
 Installation
 ------------
 
 Currently, the module is hosted at Maven Central Repository.
-Therefore, including the following lines in your ```build.scala``` will resolve it:
+Therefore, including the following lines in your ```build.sbt``` will resolve it:
 ```
 libraryDependencies ++= Seq(
   ...
-      "it.innove" % "play2-pdf" % "1.2.0"
+      "it.innove" % "play2-pdf" % "1.3.0"
 )
 ```
 After the next restart of Play!, the module is available.
@@ -90,6 +94,14 @@ Releases
 ------------
 
 <table>
+	<tr>
+        <td>1.3.0</td>
+        <td>16/07/2015</td>
+        <td>
+            Play 2.4.2<br>
+            Removed static methods to use Guice
+        </td>
+	</td>
 	<tr>
 		<td>1.2.0</td>
 		<td>12/06/2015</td>

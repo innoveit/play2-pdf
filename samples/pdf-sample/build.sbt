@@ -10,7 +10,7 @@ libraryDependencies ++= Seq(
   javaJdbc,
   cache,
   javaWs,
-  "it.innove" % "play2-pdf" % "1.2.0",
+  "it.innove" % "play2-pdf" % "1.3.0",
   "org.webjars" %% "webjars-play" % "2.4.0-1",
   "org.webjars" % "bootstrap" % "3.3.2"
 )
