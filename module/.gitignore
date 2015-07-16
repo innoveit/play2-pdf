@@ -13,3 +13,4 @@ tmp
 .settings
 .project
 .target
+/bin/
