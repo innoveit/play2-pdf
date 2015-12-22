@@ -78,7 +78,7 @@ Therefore, including the following lines in your ```build.sbt``` will resolve it
 ```
 libraryDependencies ++= Seq(
   ...
-      "it.innove" % "play2-pdf" % "1.3.0"
+      "it.innove" % "play2-pdf" % "1.4.0"
 )
 ```
 After the next restart of Play!, the module is available.
@@ -95,13 +95,21 @@ Releases
 
 <table>
 	<tr>
+		<td>1.4.0</td>
+        <td>22/12/2015</td>
+        <td>
+            Play 2.4.6<br>
+            flying-saucer-pdf 9.0.8<br>
+        </td>
+    </tr>
+	<tr>
         <td>1.3.0</td>
         <td>16/07/2015</td>
         <td>
             Play 2.4.2<br>
             Removed static methods to use Guice
         </td>
-	</td>
+	</tr>
 	<tr>
 		<td>1.2.0</td>
 		<td>12/06/2015</td>
