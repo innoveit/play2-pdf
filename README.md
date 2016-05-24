@@ -1,4 +1,4 @@
-Play 2.4.x PDF module
+Play 2.5.x PDF module
 ===================
 
 This module helps generating PDF documents dynamically from your Play! web application.
@@ -93,46 +93,4 @@ Released under the MIT license; see the file LICENSE.
 Releases
 ------------
 
-<table>
-	<tr>
-		<td>1.4.0</td>
-        <td>22/12/2015</td>
-        <td>
-            Play 2.4.6<br>
-            flying-saucer-pdf 9.0.8<br>
-        </td>
-    </tr>
-	<tr>
-        <td>1.3.0</td>
-        <td>16/07/2015</td>
-        <td>
-            Play 2.4.2<br>
-            Removed static methods to use Guice
-        </td>
-	</tr>
-	<tr>
-		<td>1.2.0</td>
-		<td>12/06/2015</td>
-		<td>Play 2.4</td>
-	</tr>
-	<tr>
-		<td>1.1.3</td>
-		<td>26/02/2015</td>
-		<td>Fix render without font</td>
-	</tr>
-	<tr>
-		<td>1.1.2</td>
-		<td>03/02/2015</td>
-		<td>Fix css loading</td>
-	</tr>
-	<tr>
-		<td>1.1.1</td>
-		<td>03/12/2014</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>1.0.0</td>
-		<td>12/11/2014</td>
-		<td>Play 2.3</td>
-	</tr>
-</table>
+https://github.com/innoveit/play2-pdf/releases
