@@ -8,6 +8,8 @@ import play.*;
 import play.mvc.*;
 import views.html.*;
 
+import java.util.Arrays;
+
 public class Application extends Controller {
 	
 	@Inject
@@ -18,6 +20,11 @@ public class Application extends Controller {
     }
 
     public Result pdf() {
+		pdfGenerator.loadTemporaryFonts(Arrays.asList(new String[]{"fonts/OpenSans-Regular.ttf", "fonts/OpenSans-Bold.ttf"}));
 		return pdfGenerator.ok(utf.render("Hello world"), Configuration.root().getString("application.host"));
+	}
+
+	public Result utf() {
+		return ok(utf.render("Hello world"));
 	}
 }

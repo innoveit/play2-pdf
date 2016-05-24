@@ -5,6 +5,7 @@
 # Home page
 GET   /                controllers.Application.index()
 GET   /test/pdf        controllers.Application.pdf
+GET   /utf        controllers.Application.utf
 
 GET   /webjars/*file   controllers.WebJarAssets.at(file)
 
