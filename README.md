@@ -78,7 +78,7 @@ Therefore, including the following lines in your ```build.sbt``` will resolve it
 ```
 libraryDependencies ++= Seq(
   ...
-      "it.innove" % "play2-pdf" % "1.4.0"
+      "it.innove" % "play2-pdf" % "1.5.1"
 )
 ```
 After the next restart of Play!, the module is available.
