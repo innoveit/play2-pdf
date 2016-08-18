@@ -17,7 +17,7 @@ libraryDependencies ++= Seq(
 )
 
 resolvers ++= Seq(
-  "Maven Central" at "http://http://repo1.maven.org/maven2/"
+  "Maven Central" at "http://repo1.maven.org/maven2/"
 )
 
 publishMavenStyle := true
