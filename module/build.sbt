@@ -2,7 +2,7 @@ name := "play2-pdf"
 
 organization := "it.innove"
 
-version := "1.5.1"
+version := "1.5.2"
 
 lazy val root = (project in file(".")).enablePlugins(PlayJava)
 
@@ -12,7 +12,7 @@ crossPaths := false
 
 libraryDependencies ++= Seq(
   "commons-io" % "commons-io" % "2.4",
-  "org.xhtmlrenderer" % "flying-saucer-pdf" % "9.0.9",
+  "org.xhtmlrenderer" % "flying-saucer-pdf" % "9.1.1",
   "nu.validator.htmlparser" % "htmlparser" % "1.4"
 )
 
