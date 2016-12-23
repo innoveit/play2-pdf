@@ -7,3 +7,4 @@ target
 .cache
 org.scala-ide.sdt.core.prefs
 bin
+.iml

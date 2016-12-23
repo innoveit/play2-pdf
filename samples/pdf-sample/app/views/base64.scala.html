@@ -1,4 +1,4 @@
-@(message: String)
+@(css: String, image: String)
 
 <!DOCTYPE html>
 
@@ -6,11 +6,13 @@
     <head>
         <title>PDF Sample</title>
         <meta charset="UTF-8">
+		<style>
+			@css
+		</style>
     </head>
     <body>
 	    Imagem remota: <img src="https://www.google.pt/images/srpr/logo11w.png"/><br/>
 	    Hello world! <br/>
-	    @message <br/>
 	    <div style="color:blue">
 	    	This is blue text
 	    </div>
@@ -34,6 +36,10 @@
 			German characters: öäüßÖÄÜ<br>
 			Portuguese Caracteres: À pà ó ção<br>
 			Italian: è à ò
+		</div>
+		<img src="@image" alt="Image base 64" />
+		<div class="mystyle">
+			Inline css
 		</div>
     </body>
 </html>
