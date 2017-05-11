@@ -16,7 +16,7 @@ import org.apache.commons.io.IOUtils;
 import org.w3c.dom.Document;
 import org.xhtmlrenderer.pdf.ITextRenderer;
 
-import com.lowagie.text.pdf.BaseFont;
+import com.itextpdf.text.pdf.BaseFont;
 
 import play.Logger;
 import play.Play;
@@ -35,13 +35,13 @@ public class PdfGenerator {
 	}
 
 	public void loadTemporaryFonts(List<String> fontsToLoad) {
-		defaultFonts = new ArrayList<String>();
+		defaultFonts = new ArrayList<>();
 		addTemporaryFonts(fontsToLoad);
 	}
 
 	public void addTemporaryFonts(List<String> fontsToLoad) {
 		if (defaultFonts == null)
-			defaultFonts = new ArrayList<String>();
+			defaultFonts = new ArrayList<>();
 		for (String font : fontsToLoad) {
 			try {
 				InputStream fin = Play.application().resourceAsStream(font);
@@ -57,13 +57,13 @@ public class PdfGenerator {
 	}
 
 	public void loadLocalFonts(List<String> fontsToLoad) {
-		defaultFonts = new ArrayList<String>();
+		defaultFonts = new ArrayList<>();
 		addLocalFonts(fontsToLoad);
 	}
 
 	public void addLocalFonts(List<String> fontsToLoad) {
 		if (defaultFonts == null)
-			defaultFonts = new ArrayList<String>();
+			defaultFonts = new ArrayList<>();
 		for (String font : fontsToLoad)
 			defaultFonts.add(font);
 	}

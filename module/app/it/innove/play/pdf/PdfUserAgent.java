@@ -7,6 +7,7 @@ import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import com.itextpdf.text.Image;
 import org.xhtmlrenderer.pdf.ITextFSImage;
 import org.xhtmlrenderer.pdf.ITextOutputDevice;
 import org.xhtmlrenderer.pdf.ITextUserAgent;
@@ -18,7 +19,7 @@ import play.Logger;
 import play.api.Play;
 import scala.Option;
 
-import com.lowagie.text.Image;
+
 
 public class PdfUserAgent extends ITextUserAgent {
 
