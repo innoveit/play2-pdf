@@ -18,17 +18,22 @@ import org.xhtmlrenderer.pdf.ITextRenderer;
 
 import com.itextpdf.text.pdf.BaseFont;
 
+import play.Environment;
 import play.Logger;
-import play.Play;
 import play.twirl.api.Html;
 import play.mvc.Result;
 import play.mvc.Results;
+
+import javax.inject.Inject;
 import javax.inject.Singleton;
 
 @Singleton
 public class PdfGenerator {
 
 	private List<String> defaultFonts = null;
+
+	@Inject
+	Environment environment;
 
 	public PdfGenerator() {
 
@@ -44,7 +49,7 @@ public class PdfGenerator {
 			defaultFonts = new ArrayList<>();
 		for (String font : fontsToLoad) {
 			try {
-				InputStream fin = Play.application().resourceAsStream(font);
+				InputStream fin = environment.resourceAsStream(font);
 				final File tempFile = File.createTempFile("tmp_" + FilenameUtils.getBaseName(font), "." + FilenameUtils.getExtension(font));
 				tempFile.deleteOnExit();
 				FileOutputStream out = new FileOutputStream(tempFile);

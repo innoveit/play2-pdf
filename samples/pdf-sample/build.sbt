@@ -4,13 +4,13 @@ version := "1.0-SNAPSHOT"
 
 lazy val root = (project in file(".")).enablePlugins(PlayJava)
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.12.3"
 
 libraryDependencies ++= Seq(
   javaJdbc,
   javaWs,
   guice,
-  "it.innove" % "play2-pdf" % "1.6.0",
+  "it.innove" % "play2-pdf" % "1.7.0",
   "com.squareup.okhttp3" % "okhttp" % "3.5.0"
 )
 
