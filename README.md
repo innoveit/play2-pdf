@@ -1,4 +1,4 @@
-Play 2.5.x PDF module
+Play 2.6.x PDF module
 ===================
 
 This module helps generating PDF documents dynamically from your Play! web application.
@@ -78,7 +78,7 @@ Therefore, including the following lines in your ```build.sbt``` will resolve it
 ```
 libraryDependencies ++= Seq(
   ...
-      "it.innove" % "play2-pdf" % "1.6.0"
+      "it.innove" % "play2-pdf" % "1.7.0"
 )
 ```
 After the next restart of Play!, the module is available.
