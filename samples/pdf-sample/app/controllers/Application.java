@@ -5,9 +5,10 @@ import it.innove.play.pdf.PdfGenerator;
 import javax.inject.Inject;
 
 import okhttp3.OkHttpClient;
-import org.asynchttpclient.util.Base64;
-import play.*;
+import play.Logger;
+import com.typesafe.config.Config;
 import play.mvc.*;
+import play.shaded.ahc.org.asynchttpclient.util.Base64;
 import views.html.*;
 
 import java.util.Arrays;
@@ -19,13 +20,16 @@ public class Application extends Controller {
 	@Inject
 	public PdfGenerator pdfGenerator;
 
+	@Inject
+	public Config configuration;
+
     public Result index() {
         return ok(index.render("Your new application is ready."));
     }
 
     public Result pdf() {
 		pdfGenerator.loadTemporaryFonts(Arrays.asList(new String[]{"fonts/OpenSans-Regular.ttf", "fonts/OpenSans-Bold.ttf"}));
-		return pdfGenerator.ok(utf.render("Hello world"), Configuration.root().getString("application.host"));
+		return pdfGenerator.ok(utf.render("Hello world"), configuration.getString("application.host"));
 	}
 
 	public Result pdfbase64() {
@@ -52,7 +56,7 @@ public class Application extends Controller {
 		}
 		pdfGenerator.loadTemporaryFonts(Arrays.asList(new String[]{"fonts/OpenSans-Regular.ttf", "fonts/OpenSans-Bold.ttf"}));
 		String image = "data:image/png;base64, " + base64String;
-		return pdfGenerator.ok(base64.render(css, image), Configuration.root().getString("application.host"));
+		return pdfGenerator.ok(base64.render(css, image), configuration.getString("application.host"));
 	}
 
 	public Result utf() {

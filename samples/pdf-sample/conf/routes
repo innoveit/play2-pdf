@@ -8,7 +8,6 @@ GET   /test/pdf        controllers.Application.pdf
 GET   /utf             controllers.Application.utf
 GET   /base64          controllers.Application.pdfbase64
 
-GET   /webjars/*file   controllers.WebJarAssets.at(file)
 
 # Map static resources from the /public folder to the /assets URL path
 GET   /css/*file       controllers.Assets.at(path="/public/stylesheets", file)
