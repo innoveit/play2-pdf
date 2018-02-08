@@ -10,7 +10,7 @@ libraryDependencies ++= Seq(
   javaWs,
   guice,
   "it.innove" % "play2-pdf" % "1.7.0",
-  "com.squareup.okhttp3" % "okhttp" % "3.5.0"
+  "com.squareup.okhttp3" % "okhttp" % "3.9.1"
 )
 
 
