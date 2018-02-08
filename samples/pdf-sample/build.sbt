@@ -9,7 +9,7 @@ scalaVersion := "2.12.4"
 libraryDependencies ++= Seq(
   javaWs,
   guice,
-  "it.innove" % "play2-pdf" % "1.7.0",
+  "it.innove" % "play2-pdf" % "1.8.0-SNAPSHOT",
   "com.squareup.okhttp3" % "okhttp" % "3.9.1"
 )
 
