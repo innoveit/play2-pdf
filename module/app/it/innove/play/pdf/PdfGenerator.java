@@ -115,7 +115,7 @@ public class PdfGenerator {
 				for (String font : fonts) {
 					renderer.getFontResolver().addFont(font, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
 				}
-			PdfUserAgent myUserAgent = new PdfUserAgent(renderer.getOutputDevice());
+			PdfUserAgent myUserAgent = new PdfUserAgent(renderer.getOutputDevice(), environment);
 			myUserAgent.setSharedContext(renderer.getSharedContext());
 			renderer.getSharedContext().setUserAgentCallback(myUserAgent);
 			Document document = new HtmlDocumentBuilder().parse(input);
@@ -126,5 +126,4 @@ public class PdfGenerator {
 			Logger.error("Error creating document from template", e);
 		}
 	}
-
 }
