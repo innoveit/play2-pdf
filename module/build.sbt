@@ -6,7 +6,7 @@ version := "1.7.0"
 
 lazy val root = (project in file(".")).enablePlugins(PlayJava)
 
-scalaVersion := "2.12.3"
+scalaVersion := "2.12.4"
 
 crossPaths := false
 
