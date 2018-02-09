@@ -16,20 +16,22 @@ import org.xhtmlrenderer.resource.ImageResource;
 import org.xhtmlrenderer.resource.XMLResource;
 
 import play.Logger;
-import play.api.Play;
+import play.Environment;
 import scala.Option;
-
-
 
 public class PdfUserAgent extends ITextUserAgent {
 
-	public PdfUserAgent(ITextOutputDevice outputDevice) {
+	Environment environment;
+
+	public PdfUserAgent(ITextOutputDevice outputDevice, Environment environment) {
 		super(outputDevice);
+
+		this.environment = environment;
 	}
 
 	@Override
 	public ImageResource getImageResource(String uri) {
-		Option<InputStream> option = Play.current().resourceAsStream(uri);
+		Option<InputStream> option = environment.asScala().resourceAsStream(uri);
 		if (option.isDefined()) {
 			InputStream stream = option.get();
 			try {
@@ -47,7 +49,7 @@ public class PdfUserAgent extends ITextUserAgent {
 
 	@Override
 	public CSSResource getCSSResource(String uri) {
-		Option<InputStream> option = Play.current().resourceAsStream(uri);
+		Option<InputStream> option = environment.asScala().resourceAsStream(uri);
 		if (option.isDefined())
 			return new CSSResource(option.get());
 		try {
@@ -62,7 +64,7 @@ public class PdfUserAgent extends ITextUserAgent {
 
 	@Override
 	public byte[] getBinaryResource(String uri) {
-		Option<InputStream> option = Play.current().resourceAsStream(uri);
+		Option<InputStream> option = environment.asScala().resourceAsStream(uri);
 		if (option.isDefined()) {
 			InputStream stream = option.get();
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -80,7 +82,7 @@ public class PdfUserAgent extends ITextUserAgent {
 
 	@Override
 	public XMLResource getXMLResource(String uri) {
-		Option<InputStream> option = Play.current().resourceAsStream(uri);
+		Option<InputStream> option = environment.asScala().resourceAsStream(uri);
 		if (option.isDefined()) {
 			return XMLResource.load(option.get());
 		} else {

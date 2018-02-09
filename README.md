@@ -13,7 +13,7 @@ You can use a standard Play! scala template like this one:
 ``` html
 @(message: String)
 
-@main("Welcome to Play 2.0") {
+@main("Welcome to Play 2") {
     Image: <img src="/public/images/favicon.png"/><br/>
     Hello world! <br/>
     @message <br/>
@@ -78,7 +78,7 @@ Therefore, including the following lines in your ```build.sbt``` will resolve it
 ```
 libraryDependencies ++= Seq(
   ...
-      "it.innove" % "play2-pdf" % "1.7.0"
+      "it.innove" % "play2-pdf" % "1.8.0-SNAPSHOT"
 )
 ```
 After the next restart of Play!, the module is available.
