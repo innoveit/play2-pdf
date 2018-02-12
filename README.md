@@ -1,5 +1,7 @@
 Play 2.6.x PDF module
 ===================
+![Sonatype maven](https://img.shields.io/nexus/r/https/oss.sonatype.org/it.innove/play2-pdf.svg?style=flat)
+
 
 This module helps generating PDF documents dynamically from your Play! web application.
 It simply renders your HTML- and CSS-based templates to PDF.
@@ -78,7 +80,7 @@ Therefore, including the following lines in your ```build.sbt``` will resolve it
 ```
 libraryDependencies ++= Seq(
   ...
-      "it.innove" % "play2-pdf" % "1.8.0"
+      "it.innove" % "play2-pdf" % "x.x.x"
 )
 ```
 After the next restart of Play!, the module is available.
