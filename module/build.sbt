@@ -2,7 +2,7 @@ name := "play2-pdf"
 
 organization := "it.innove"
 
-version := "1.8.0-SNAPSHOT"
+version := "1.8.0"
 
 lazy val root = (project in file(".")).enablePlugins(PlayJava)
 
@@ -17,7 +17,7 @@ libraryDependencies ++= Seq(
 )
 
 resolvers ++= Seq(
-  "Maven Central" at "http://http://repo1.maven.org/maven2/"
+  "Maven Central" at "https://repo1.maven.org/maven2/"
 )
 
 publishMavenStyle := true
