@@ -6,3 +6,6 @@ resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/release
 
 // Use the Play sbt plugin for Play projects
 addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.6.11")
+
+// To sign the for Sonatype
+addSbtPlugin("com.jsuereth" % "sbt-pgp" % "1.1.0")
