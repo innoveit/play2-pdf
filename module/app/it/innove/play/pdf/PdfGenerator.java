@@ -29,6 +29,7 @@ import javax.inject.Singleton;
 
 @Singleton
 public class PdfGenerator {
+	private static final Logger.ALogger LOG = Logger.of(PdfGenerator.class);
 
 	private List<String> defaultFonts = null;
 
@@ -56,7 +57,7 @@ public class PdfGenerator {
 				IOUtils.copy(fin, out);
 				defaultFonts.add(tempFile.getAbsolutePath());
 			} catch (Exception e) {
-				Logger.error("Loading fonts", e);
+				LOG.error("Loading fonts", e);
 			}
 		}
 	}
@@ -123,7 +124,7 @@ public class PdfGenerator {
 			renderer.layout();
 			renderer.createPDF(os);
 		} catch (Exception e) {
-			Logger.error("Error creating document from template", e);
+			LOG.error("Error creating document from template", e);
 		}
 	}
 }
