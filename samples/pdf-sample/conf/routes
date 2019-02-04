@@ -6,7 +6,7 @@
 GET   /                controllers.Application.index
 GET   /test/pdf        controllers.Application.pdf
 GET   /utf             controllers.Application.utf
-GET   /base64          controllers.Application.pdfbase64
+GET   /base64          controllers.Application.pdfbase64(request: Request)
 
 
 # Map static resources from the /public folder to the /assets URL path

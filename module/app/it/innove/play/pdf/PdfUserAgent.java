@@ -20,6 +20,7 @@ import play.Environment;
 import scala.Option;
 
 public class PdfUserAgent extends ITextUserAgent {
+	private static final Logger.ALogger LOG = Logger.of(PdfUserAgent.class);
 
 	Environment environment;
 
@@ -39,7 +40,7 @@ public class PdfUserAgent extends ITextUserAgent {
 				scaleToOutputResolution(image);
 				return new ImageResource(uri, new ITextFSImage(image));
 			} catch (Exception e) {
-				Logger.error("fetching image " + uri, e);
+				LOG.error("fetching image " + uri, e);
 				throw new RuntimeException(e);
 			}
 		} else {
@@ -57,7 +58,7 @@ public class PdfUserAgent extends ITextUserAgent {
 			new URL(uri).getPath();
 			return super.getCSSResource(uri);
 		} catch (MalformedURLException e) {
-			Logger.error("fetching css " + uri, e);
+			LOG.error("fetching css " + uri, e);
 			throw new RuntimeException(e);
 		}
 	}
@@ -71,7 +72,7 @@ public class PdfUserAgent extends ITextUserAgent {
 			try {
 				copy(stream, baos);
 			} catch (IOException e) {
-				Logger.error("fetching binary " + uri, e);
+				LOG.error("fetching binary " + uri, e);
 				throw new RuntimeException(e);
 			}
 			return baos.toByteArray();

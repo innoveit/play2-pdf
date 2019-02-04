@@ -1,4 +1,4 @@
-Play 2.6.x PDF module
+Play 2.7.x PDF module
 ===================
 ![Sonatype maven](https://img.shields.io/nexus/r/https/oss.sonatype.org/it.innove/play2-pdf.svg?style=flat)
 
@@ -27,11 +27,11 @@ Then this template, after having imported ```it.innove.PdfGenerator```, can simp
 
 	@Inject
 	public PdfGenerator pdfGenerator;
-	
+
 	public Result document() {
 		return pdfGenerator.ok(document.render("Your new application is ready."), "http://localhost:9000");
 	}
-```  
+```
 where ```pdfGenerator.ok``` is a simple shorthand notation for:
 ``` java
 	ok(pdfGenerator.toBytes(document.render("Your new application is ready."), "http://localhost:9000")).as("application/pdf")
@@ -48,8 +48,8 @@ If you specify the URI as a path into the classpath of your Play! app, the resou
 See the above sample template for an example.
 
 Of course you can link to CSS files in your class path also, but be aware not to
-use the ``` media="screen"```qualifier. 
-  
+use the ``` media="screen"```qualifier.
+
 Fonts you use must be explicitely packaged with your app.
 ```
 <html>
@@ -59,7 +59,7 @@ Fonts you use must be explicitely packaged with your app.
 			...
 			font-family: FreeSans;
 		}
-		--></style>	
+		--></style>
 	</head>
 	<body>
 		...
@@ -84,7 +84,7 @@ libraryDependencies ++= Seq(
 )
 ```
 After the next restart of Play!, the module is available.
-If you are using an IDE like Eclipse, remember to re-generate your project files. 
+If you are using an IDE like Eclipse, remember to re-generate your project files.
 
 
 License

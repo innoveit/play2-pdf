@@ -6,13 +6,13 @@ version := "1.8.0"
 
 lazy val root = (project in file(".")).enablePlugins(PlayJava)
 
-scalaVersion := "2.12.4"
+scalaVersion := "2.12.8"
 
 crossPaths := false
 
 libraryDependencies ++= Seq(
   "commons-io" % "commons-io" % "2.6",
-  "org.xhtmlrenderer" % "flying-saucer-pdf-itext5" % "9.1.11",
+  "org.xhtmlrenderer" % "flying-saucer-pdf-itext5" % "9.1.16",
   "nu.validator.htmlparser" % "htmlparser" % "1.4"
 )
 
@@ -24,7 +24,7 @@ publishMavenStyle := true
 
 publishArtifact in Test := false
 
-pomIncludeRepository := { _ => false }	
+pomIncludeRepository := { _ => false }
 
 publishTo := {
   val nexus = "https://oss.sonatype.org/"
