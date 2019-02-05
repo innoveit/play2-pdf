@@ -4,7 +4,7 @@ organization := "it.innove"
 
 version := "1.9.0"
 
-lazy val root = (project in file(".")).enablePlugins(PlayJava)
+lazy val root = (project in file(".")).enablePlugins(PlayMinimalJava)
 
 scalaVersion := "2.12.8"
 
