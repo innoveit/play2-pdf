@@ -83,9 +83,42 @@ libraryDependencies ++= Seq(
       "it.innove" % "play2-pdf" % "x.x.x"
 )
 ```
+where:
+
+| Play version  | play2-pdf vesion |
+| :-----------: | :--------------: |
+| 2.7           | 1.9.x            |
+| 2.6           | 1.8.x            |
+
 After the next restart of Play!, the module is available.
 If you are using an IDE like Eclipse, remember to re-generate your project files.
 
+Configuration
+------------
+
+If you need additional configuration, then modify your `ApplicationModule` accordingly:
+``` java
+public class ApplicationModule extends AbstractModule {
+  @Override
+  protected void configure() {
+    bind(PdfGenerator.class).toProvider(PdfGeneratorProvider.class).asEagerSingleton();
+  }
+  
+  static class PdfGeneratorProvider implements Provider<PdfGenerator> {
+    private final PdfGenerator pdfGenerator;
+
+    public PdfGeneratorProvider() {
+      this.pdfGenerator = new PdfGenerator();
+      this.pdfGenerator.loadLocalFonts(asList("fonts/opensans-regular.ttf"));
+    }
+
+    @Override
+    public PdfGenerator get() {
+      return pdfGenerator;
+    }
+  }
+}
+```
 
 License
 -------
