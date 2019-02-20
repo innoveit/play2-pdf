@@ -33,11 +33,11 @@ public class PdfGenerator {
 
 	private List<String> defaultFonts = null;
 
+	final Environment environment;
+
 	@Inject
-	Environment environment;
-
-	public PdfGenerator() {
-
+	public PdfGenerator(final Environment environment) {
+		this.environment = environment;
 	}
 
 	public void loadTemporaryFonts(List<String> fontsToLoad) {
