@@ -107,8 +107,9 @@ public class ApplicationModule extends AbstractModule {
   static class PdfGeneratorProvider implements Provider<PdfGenerator> {
     private final PdfGenerator pdfGenerator;
 
-    public PdfGeneratorProvider() {
-      this.pdfGenerator = new PdfGenerator();
+    @Inject
+    public PdfGeneratorProvider(final Environment environment) {
+      this.pdfGenerator = new PdfGenerator(environment);
       this.pdfGenerator.loadLocalFonts(asList("fonts/opensans-regular.ttf"));
     }
 
