@@ -2,11 +2,11 @@ name := "play2-pdf"
 
 organization := "it.innove"
 
-version := "1.9.1"
+version := "1.10.0"
 
 lazy val root = (project in file(".")).enablePlugins(PlayMinimalJava)
 
-scalaVersion := "2.12.8"
+scalaVersion := "2.13.1"
 
 crossPaths := false
 
