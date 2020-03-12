@@ -1,4 +1,4 @@
-Play 2.7.x PDF module
+Play 2.8.x PDF module
 ===================
 ![Sonatype maven](https://img.shields.io/nexus/r/https/oss.sonatype.org/it.innove/play2-pdf.svg?style=flat)
 
