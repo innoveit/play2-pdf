@@ -2,17 +2,17 @@ name := "play2-pdf"
 
 organization := "it.innove"
 
-version := "1.10.0"
+version := "1.11.0"
 
 lazy val root = (project in file(".")).enablePlugins(PlayMinimalJava)
 
-scalaVersion := "2.13.1"
+scalaVersion := "2.13.10"
 
 crossPaths := false
 
 libraryDependencies ++= Seq(
-  "commons-io" % "commons-io" % "2.6",
-  "org.xhtmlrenderer" % "flying-saucer-pdf-itext5" % "9.1.16",
+  "commons-io" % "commons-io" % "2.11.0",
+  "org.xhtmlrenderer" % "flying-saucer-pdf-itext5" % "9.1.22",
   "nu.validator.htmlparser" % "htmlparser" % "1.4"
 )
 
@@ -22,11 +22,11 @@ resolvers ++= Seq(
 
 publishMavenStyle := true
 
-publishArtifact in Test := false
+Test / publishArtifact := false
 
 pomIncludeRepository := { _ => false }
 
-publishTo := {
+publishTo := {g
   val nexus = "https://oss.sonatype.org/"
   if (isSnapshot.value)
     Some("snapshots" at nexus + "content/repositories/snapshots")
@@ -39,7 +39,7 @@ pomExtra := (
   <licenses>
     <license>
       <name>MIT license</name>
-      <url>http://www.opensource.org/licenses/mit-license.php</url>
+      <url>https://www.opensource.org/licenses/mit-license.php</url>
     </license>
   </licenses>
   <scm>
@@ -50,7 +50,7 @@ pomExtra := (
 	<developer>
 		<id>marcosinigaglia</id>
         <name>Marco Sinigaglia</name>
-        <url>http://www.innove.it</url>
+        <url>https://www.innove.it</url>
     </developer>
   </developers>
 )
